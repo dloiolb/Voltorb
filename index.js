@@ -445,16 +445,33 @@ function handleClick(row, col) {
     // board[row][col].hasbeenpressed = true;
     currVal = board[row][col];
     button.textContent = `${currVal}`;
-    if (currentLevelCoins == 0){
+    if (currVal == 0){
+        if (currentLevel == 1){
+            currentLevelCoins = 0;
+            generateBoard();
+            resetBoard();
+        }
+        else{
+            if (currentLevelCoins < currentLevel){
+                currentLevel -= 1;
+            }
+            currentLevelCoins = 0;
+            generateBoard();
+            resetBoard();
+        }
+        
+    }
+    else if (currentLevelCoins == 0){
         currentLevelCoins = currVal;
     }
     else {
         currentLevelCoins *= currVal;
     }
 
-    // buttonLevel.textContent = `${currentLevel}`;
-    // buttonAC.textContent = `${accumulatedCoins}`;
+    buttonLevel.textContent = `${currentLevel}`;
+    buttonAC.textContent = `${accumulatedCoins}`;
     buttonCLC.textContent = `${currentLevelCoins}`;
+    
 
     // console.log(currentLevelCoins);
     // console.log((2 ** currentDict.x2s) * (3 ** currentDict.x3s));
