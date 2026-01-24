@@ -395,6 +395,7 @@ document.getElementById('ButtonInt').onclick = () => setActiveButton('intermedia
 ButtonInt.addEventListener("click", function() {
     showBoard("intermediate");
     setActiveButton("intermediate");
+    ButtonCheat.classList.remove('active');
     currentLevelCoins = 0;
     currentLevel = 1;
     startGame2();
@@ -512,6 +513,10 @@ function startGame2() {
     // const DIFFICULTY = 99;
     game = 1;
     win = 0;
+
+    buttonLevel.textContent = `${currentLevel}`;
+    buttonAC.textContent = `${accumulatedCoins}`;
+    buttonCLC.textContent = `${currentLevelCoins}`;
     // firstpress = true;
     // startButton.textContent = CHOSEN_DIFF_BOMBS;
     // board = Array(INTERMEDIATE_ROWS).fill().map(() => Array(INTERMEDIATE_ROWS).fill().map(() => new Cell()));
