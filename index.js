@@ -398,7 +398,12 @@ ButtonInt.addEventListener("click", function() {
     ButtonCheat.classList.remove('active');
     currentLevelCoins = 0;
     currentLevel = 1;
-    startGame2();
+    buttonLevel.textContent = `${currentLevel}`;
+    buttonAC.textContent = `${accumulatedCoins}`;
+    buttonCLC.textContent = `${currentLevelCoins}`;
+    // startGame2();
+    generateBoard();
+    resetBoard();
 });
 
 ButtonCheat.addEventListener("click", function() {
